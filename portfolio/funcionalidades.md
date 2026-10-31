@@ -1,0 +1,41 @@
+# FUNCIONALIDADES.MD — Controle e Estado de Implementação
+
+Este documento registra o status e a prioridade de cada funcionalidade do projeto. Os estados permitidos são:
+- **Pendente**
+- **Em desenvolvimento**
+- **Implementada**
+- **Testada**
+
+---
+
+## Tabela de Prioridades e Status
+
+| Prioridade | Funcionalidade | Estado | Descrição / Observações |
+| :---: | :--- | :---: | :--- |
+| **01** | Planejamento e Identidade Visual | **Testada** | Arquivos `AGENTS.md`, `identidade.md`, `referencias.md`, `funcionalidades.md` criados e alinhados. |
+| **02** | Hero com Tipografia Experimental | **Implementada** | Título monumental "THALITA", recortes cinéticos, camadas sobrepostas e metadados técnicos. |
+| **03** | Animação Principal de Entrada | **Implementada** | Sequência cinematográfica com máscaras de corte, revelação coordenada e sem bloqueio de navegação. |
+| **04** | Elemento 3D Interativo (WebGL) | **Implementada** | Escultura geométrica cromada com iluminação roxa dinâmica em Three.js que reage ao cursor/toque. |
+| **05** | Menu e Navegação Superior | **Implementada** | Header minimalista com status ativo, links com hover dinâmico e suporte a atalhos. |
+| **06** | Responsividade Inicial do Hero | **Testada** | Adaptação para celular, tablet, notebook e monitores ultra-wide sem quebra de grid. |
+| **07** | Interações com Cursor Personalizado | **Implementada** | Círculo seguidor suave com física de atraso, aura luminescente e desativação automática em telas de toque. |
+| **08** | Micro-interações Táteis (Efeito Magnético) | **Implementada** | Atração magnética elástica nos botões do hero e header ao aproximar o mouse. |
+| **09** | Acessibilidade & Prefers-Reduced-Motion | **Testada** | Suporte a leitores de tela, foco visível (`:focus-visible`) e desativação de animações se solicitado pelo SO. |
+| **10** | Seção Sobre Mim | **Implementada** | Seção 02 implementada com dados autênticos do Instituto Educacional Raphael di Santo, 3º ano técnico (formanda), avatar estilizado oficial, foco em Front-End/UI-UX e card musical BTS/K-pop. |
+| **11** | Galeria de Projetos | **Implementada** | Seção 03 implementada com 8 repositórios reais do GitHub da Thalita, filtros por tecnologia (Python, JS, Java), card de perfil e links diretos. |
+| **12** | Seção Contato | **Pendente** | Aguardando autorização (Etapa 5); e-mail oficial, GitHub e validações reais. |
+| **13** | Transições Durante a Rolagem | **Pendente** | Aguardando etapas de seções subsequentes (Etapa 6). |
+| **14** | Modo Claro e Escuro | **Pendente** | Refinamento programado para a Etapa 6. |
+| **15** | Refinamento de Desempenho e Acessibilidade Global | **Pendente** | Otimização global de framerate e assets (Etapa 6 e 7). |
+| **16** | Testes Finais Completos | **Pendente** | Verificação de todos os fluxos e navegadores (Etapa 7). |
+| **17** | Publicação e Documentação Escolar | **Pendente** | README final, Vercel e exportação para PDF escolar (Etapa 8). |
+
+---
+
+## Log de Atualizações
+
+- **Etapa 1:** Planejamento concluído. Criação e estruturação de `AGENTS.md`, `identidade.md`, `referencias.md` e `funcionalidades.md`.
+- **Etapa 2:** Hero implementado com tipografia cinética, elemento 3D WebGL (Three.js), cursor magnético, header e botões de ação com foco em acessibilidade e responsividade.
+- **Refinamento Responsivo Multiplataforma:** Adaptação completa para mobile (celulares de 320px a 480px, tablets) e desktop/computador (laptops compactos de 1366x768, monitores 1080p e ultra-wide). Implementação de menu drawer mobile com animação do botão hambúrguer para 'X', toque tátil para rotação 3D no celular, header glassmorphic dinâmico ao rolar, Spy Scroll para links ativos, touch targets de 48px e prevenção de overflow horizontal.
+- **Etapa 4 (Galeria de Projetos & GitHub):** Implementação completa da seção de Projetos conectada ao GitHub oficial `@Thalita04`, com cards interativos, filtros por linguagem (Python, JavaScript, Java), links diretos e banner para o perfil completo.
+- **Etapa 3 (Seção Sobre Mim):** Implementação completa da seção com dados reais fornecidos por Thalita (Instituto Educacional Raphael di Santo, formanda do 3º ano técnico), avatar oficial circular em rosa cibernético, pilares de UI/UX & Front-End, card musical BTS/K-pop e métricas de formação.

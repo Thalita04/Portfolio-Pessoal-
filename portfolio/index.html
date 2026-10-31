@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thalita Terrazan — Creative Portfolio // Digital Playground</title>
+  <meta name="description" content="Portfólio experimental de Thalita de Oliveira Terrazan, estudante técnica de Informática focada em programação, tecnologia e design visual.">
+  <meta name="theme-color" content="#0D0811">
+
+  <!-- Google Fonts: Space Grotesk, Inter, Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Favicon Oficial & Customizável -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+  <!-- Cursor Personalizado (Desativado em telas de toque) -->
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-glow"></div>
+  </div>
+
+  <!-- Cenário 3D WebGL (Three.js) -->
+  <div class="webgl-container" id="webgl-container" aria-hidden="true">
+    <canvas id="webgl-canvas"></canvas>
+  </div>
+
+  <!-- Camada de Ruído e Grid Cibernético Sutil -->
+  <div class="cyber-grid" aria-hidden="true"></div>
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Sequência de Pré-carregamento / Entrada Cinematográfica -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-counter" id="preloader-counter">00</div>
+      <div class="preloader-bar"><span class="preloader-progress" id="preloader-progress"></span></div>
+      <p class="preloader-status">INICIALIZANDO // DIGITAL PLAYGROUND</p>
+    </div>
+  </div>
+
+  <!-- Header / Menu Superior -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="brand" aria-label="Voltar ao início">
+        <span class="brand-monogram">TT</span>
+        <span class="brand-divider">/</span>
+        <span class="brand-name">THALITA TERRAZAN</span>
+      </a>
+
+      <div class="header-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="status-label">ESTUDANTE TÉCNICA // INFORMÁTICA</span>
+      </div>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Navegação Principal">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#hero" class="nav-link is-active" data-magnetic>
+              <span class="nav-index">01</span> Início
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sobre" class="nav-link" data-magnetic>
+              <span class="nav-index">02</span> Sobre
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projetos" class="nav-link" data-magnetic>
+              <span class="nav-index">03</span> Projetos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contato" class="nav-link" data-magnetic>
+              <span class="nav-index">04</span> Contato
+              <span class="nav-badge">Em breve</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Painel Adicional no Menu Mobile -->
+        <div class="mobile-drawer-footer" aria-hidden="true">
+          <div class="mobile-drawer-divider"></div>
+          <a href="mailto:thalitaoliveira473@gmail.com" class="mobile-drawer-contact">
+            <span>thalitaoliveira473@gmail.com</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="https://github.com/Thalita04" target="_blank" rel="noopener noreferrer" class="mobile-drawer-github">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            <span>github.com/Thalita04</span>
+          </a>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <a href="mailto:thalitaoliveira473@gmail.com" class="btn-quick-contact" data-magnetic aria-label="Enviar e-mail para Thalita">
+          <span>CONTATO</span>
+          <svg class="icon-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <!-- Botão Menu Mobile -->
+        <button class="mobile-toggle" id="mobile-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="main-content">
+    
+    <!-- ==================== HERO SECTION (ETAPA 2) ==================== -->
+    <section class="hero-section" id="hero" aria-label="Apresentação Inicial">
+      
+      <!-- Metadados de Cabeçalho do Hero -->
+      <div class="hero-meta-top">
+        <div class="meta-tag">
+          <span class="meta-icon">◈</span>
+          <span class="meta-text">CONCEITO: DIGITAL PLAYGROUND</span>
+        </div>
+        <div class="meta-tag">
+          <span class="meta-icon">LOCATION:</span>
+          <span class="meta-text">BRASIL // 2026</span>
+        </div>
+        <div class="meta-tag hide-mobile">
+          <span class="meta-icon">CORE:</span>
+          <span class="meta-text">PYTHON • HTML • CSS • JAVA</span>
+        </div>
+      </div>
+
+      <!-- Título Monumental e Tipografia Experimental -->
+      <div class="hero-title-wrapper">
+        <div class="hero-title-ghost" aria-hidden="true">
+          <span class="ghost-text">THALITA</span>
+        </div>
+        
+        <h1 class="hero-title" aria-label="Thalita de Oliveira Terrazan">
+          <span class="hero-name-row" id="hero-name-row">
+            <!-- Letras envelopadas para animação cinética de máscara e deslocamento -->
+            <span class="char-box"><span class="char" data-char="T">T</span></span>
+            <span class="char-box"><span class="char" data-char="H">H</span></span>
+            <span class="char-box"><span class="char" data-char="A">A</span></span>
+            <span class="char-box"><span class="char" data-char="L">L</span></span>
+            <span class="char-box"><span class="char" data-char="I">I</span></span>
+            <span class="char-box"><span class="char" data-char="T">T</span></span>
+            <span class="char-box"><span class="char" data-char="A">A</span></span>
+          </span>
+        </h1>
+
+        <div class="hero-surname-row">
+          <span class="surname-line" aria-hidden="true"></span>
+          <span class="surname-text">DE OLIVEIRA TERRAZAN</span>
+          <span class="surname-code">[04/05/2009 // 17 ANOS // DEV &amp; DESIGN]</span>
+        </div>
+      </div>
+
+      <!-- Grid Assimétrico Inferior com Apresentação e Ações -->
+      <div class="hero-content-grid">
+        <div class="hero-statement">
+          <p class="statement-lead">
+            Sou Thalita, estudante técnica de Informática, interessada em programação, tecnologia e experiências visuais para a web.
+          </p>
+          <p class="statement-sub">
+            Gosto de explorar a intersecção entre a precisão do código e a sensibilidade do design, criando experiências digitais imersivas com identidade própria.
+          </p>
+
+          <!-- Badges de Tecnologias Praticadas -->
+          <div class="tech-stack-strip" aria-label="Tecnologias estudadas">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">HTML</span>
+            <span class="tech-pill">CSS</span>
+            <span class="tech-pill">Java</span>
+          </div>
+        </div>
+
+        <div class="hero-actions-container">
+          <div class="cta-group">
+            <a href="#projetos" class="btn-primary" data-magnetic id="btn-explore">
+              <span class="btn-glow" aria-hidden="true"></span>
+              <span class="btn-text">EXPLORAR PROJETOS</span>
+              <span class="btn-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 1V13M7 13L1 7M7 13L13 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+
+            <a href="mailto:thalitaoliveira473@gmail.com" class="btn-secondary" data-magnetic>
+              <span class="btn-text">INICIAR CONTATO</span>
+            </a>
+          </div>
+
+          <div class="hero-social-links">
+            <a href="https://github.com/Thalita04" target="_blank" rel="noopener noreferrer" class="social-link" data-magnetic aria-label="Acessar perfil de Thalita no GitHub (abre em nova aba)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span>github.com/Thalita04</span>
+            </a>
+            <span class="social-sep">/</span>
+            <span class="social-meta">pt-BR & EN-B1</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rodapé do Hero / Indicador de Rolagem e Status 3D -->
+      <div class="hero-bottom-bar">
+        <div class="status-glance">
+          <span class="glance-label">INTERACTION:</span>
+          <span class="glance-value">MOVA O CURSOR PARA ROTACIONAR O OBJETO 3D</span>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+          <span class="scroll-text">ROLE PARA EXPLORAR</span>
+          <div class="scroll-track">
+            <span class="scroll-dot"></span>
+          </div>
+        </div>
+
+        <div class="frame-rate-status">
+          <span class="fps-dot"></span>
+          <span class="fps-value" id="fps-display">WEBGL ATIVO // 60 FPS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SEÇÃO 02 // SOBRE MIM (ETAPA 3) ==================== -->
+    <section id="sobre" class="about-section" aria-label="Seção Sobre Mim">
+      <div class="about-container">
+        
+        <!-- Cabeçalho da Seção -->
+        <header class="section-header">
+          <div class="section-meta">
+            <span class="meta-tag"><span class="meta-icon">◈</span> 02 // TRAJETÓRIA &amp; IDENTIDADE</span>
+            <span class="meta-tag hide-mobile">RAPHAEL DI SANTO // 3º ANO TÉCNICO</span>
+          </div>
+          <h2 class="section-title">
+            SOBRE <span class="text-highlight">MIM</span>
+          </h2>
+          <p class="section-subtitle">
+            Estudante técnica do Instituto Educacional Raphael di Santo, focada no universo do Front-End, criação de telas e UI/UX design — unindo a estrutura do código à sensibilidade visual.
+          </p>
+        </header>
+
+        <!-- Grid Assimétrico Sobre Mim -->
+        <div class="about-content-grid">
+          
+          <!-- Coluna Esquerda: Card Visual, Avatar & Metadados -->
+          <div class="about-profile-col">
+            <div class="about-card-profile">
+              <div class="avatar-wrapper">
+                <div class="avatar-glow" aria-hidden="true"></div>
+                <img src="thalita-avatar.jpg" alt="Avatar estilizado de Thalita Terrazan com tons de rosa" class="avatar-image">
+                <div class="avatar-badge">
+                  <span class="status-dot" aria-hidden="true"></span>
+                  <span>FORMANDA // 2026</span>
+                </div>
+              </div>
+
+              <div class="profile-meta-list">
+                <div class="meta-item">
+                  <span class="meta-label">DATA DE NASCIMENTO:</span>
+                  <span class="meta-val">04/05/2009 (17 anos)</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">INSTITUIÇÃO:</span>
+                  <span class="meta-val">Inst. Educ. Raphael di Santo</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">SÉRIE &amp; CURSO:</span>
+                  <span class="meta-val">3º Ensino Médio • Técnico em Informática</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">ESPECIALIDADE:</span>
+                  <span class="meta-val highlight-pink">Front-End &amp; UI/UX Design</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">IDIOMAS:</span>
+                  <span class="meta-val">Português (Nativo) • Inglês (Intermediário)</span>
+                </div>
+              </div>
+
+              <!-- Card Musical On-Repeat -->
+              <div class="playlist-card">
+                <div class="playlist-header">
+                  <div class="equalizer" aria-hidden="true">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                  </div>
+                  <span class="playlist-tag">ON REPEAT // SPOTIFY</span>
+                </div>
+                <div class="playlist-content">
+                  <span class="track-title">BTS &amp; MÚSICAS EM INGLÊS</span>
+                  <span class="track-artist">K-pop Vibes • Inspiração Criativa no Tempo Livre</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Biografia, Filosofia & Pilares -->
+          <div class="about-narrative-col">
+            
+            <div class="narrative-card">
+              <h3 class="narrative-headline">
+                "O código constrói a base, mas é o design que dá alma e voz à experiência."
+              </h3>
+              
+              <div class="narrative-body">
+                <p>
+                  Sou a Thalita, nascida em <strong>04 de maio de 2009 (17 anos)</strong> e estou no <strong>3º ano do Ensino Médio</strong>, cursando o último ano do <strong>Curso Técnico de Informática no Instituto Educacional Raphael di Santo</strong>. Minha jornada na tecnologia nasceu da curiosidade em entender como sistemas funcionam por dentro e como interfaces podem encantar as pessoas que as utilizam.
+                </p>
+                <p>
+                  Minha verdadeira paixão está na <strong>criação de telas e no design de UI/UX para Front-End</strong>. Gosto de pensar em cada espaçamento, hierarquia tipográfica, contraste de cores e micro-interação. Acredito que um bom produto digital deve ser tão prazeroso de olhar e navegar quanto é robusto tecnicamente.
+                </p>
+                <p>
+                  Além da programação para a web, também tenho experiência prática na construção de <strong>APIs REST em Python</strong> e na <strong>orientação a objetos em Java</strong>. No meu tempo livre, minha válvula de escape e fonte de inspiração é a música: amo ouvir canções em inglês, sou fã de <strong>BTS</strong> e apaixonada pela energia e estética visual do <strong>K-pop</strong> — o que também me ajuda a praticar o inglês no dia a dia.
+                </p>
+              </div>
+
+              <!-- Pilares de Competência -->
+              <div class="competence-grid">
+                <div class="competence-box">
+                  <span class="box-icon">✦</span>
+                  <h4>Criação de Telas &amp; UI/UX</h4>
+                  <p>Design visual moderno, estética cyber-editorial, wireframing, escolha tipográfica e layouts responsivos para celulares e computadores.</p>
+                </div>
+                <div class="competence-box">
+                  <span class="box-icon">⚡</span>
+                  <h4>Front-End Interativo</h4>
+                  <p>Estruturação semântica com HTML5, estilização avançada em CSS3, animações cinéticas e manipulação assíncrona com JavaScript.</p>
+                </div>
+                <div class="competence-box">
+                  <span class="box-icon">⚙</span>
+                  <h4>Fundamentos &amp; Back-End</h4>
+                  <p>Desenvolvimento de rotas e APIs em Python (POST/GET/PUT), tratamento de dados em JSON e lógica orientada a objetos em Java.</p>
+                </div>
+              </div>
+
+              <!-- Destaque em Números / Métricas -->
+              <div class="about-metrics-strip">
+                <div class="metric-item">
+                  <span class="metric-number">3º</span>
+                  <span class="metric-desc">Ano do Ensino Médio &amp; Técnico</span>
+                </div>
+                <div class="metric-separator" aria-hidden="true"></div>
+                <div class="metric-item">
+                  <span class="metric-number">+60</span>
+                  <span class="metric-desc">Repositórios no GitHub</span>
+                </div>
+                <div class="metric-separator" aria-hidden="true"></div>
+                <div class="metric-item">
+                  <span class="metric-number">100%</span>
+                  <span class="metric-desc">Foco em Front-End &amp; Telas</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SEÇÃO 03 // PROJETOS (ETAPA 4) ==================== -->
+    <section id="projetos" class="projects-section" aria-label="Galeria de Projetos e Repositórios">
+      <div class="projects-container">
+        
+        <!-- Cabeçalho da Seção -->
+        <header class="section-header">
+          <div class="section-meta">
+            <span class="meta-tag"><span class="meta-icon">◈</span> 03 // REPOSITÓRIOS OFICIAIS</span>
+            <span class="meta-tag hide-mobile">SOURCE: GITHUB.COM/THALITA04</span>
+          </div>
+          <h2 class="section-title">
+            PROJETOS &amp; <span class="text-highlight">CÓDIGO</span>
+          </h2>
+          <p class="section-subtitle">
+            Seleção de projetos práticos e acadêmicos desenvolvidos no curso técnico de Informática, cobrindo desenvolvimento de APIs REST, aplicações web integradas e programação orientada a objetos.
+          </p>
+
+          <!-- Banner Destaque GitHub Profile -->
+          <div class="github-profile-card">
+            <div class="github-profile-info">
+              <div class="github-avatar-badge" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </div>
+              <div class="github-profile-text">
+                <span class="github-profile-title">GitHub Oficial — Thalita04</span>
+                <span class="github-profile-handle">@Thalita04 // Mais de 60 repositórios públicos</span>
+              </div>
+            </div>
+            <a href="https://github.com/Thalita04" target="_blank" rel="noopener noreferrer" class="btn-github-visit" data-magnetic aria-label="Abrir perfil de Thalita no GitHub em nova aba">
+              <span>ACESSAR PERFIL</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Filtros Interativos por Categoria -->
+          <div class="project-filters" role="tablist" aria-label="Filtrar projetos por tecnologia">
+            <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">TODOS [8]</button>
+            <button class="filter-btn" data-filter="python" role="tab" aria-selected="false">PYTHON [3]</button>
+            <button class="filter-btn" data-filter="javascript" role="tab" aria-selected="false">JAVASCRIPT [3]</button>
+            <button class="filter-btn" data-filter="java" role="tab" aria-selected="false">JAVA [2]</button>
+          </div>
+        </header>
+
+        <!-- Grid de Cards de Projetos -->
+        <div class="projects-grid" id="projects-grid">
+          
+          <!-- Projeto 1: API Carro (Python) -->
+          <article class="project-card" data-category="python">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-header">
+              <span class="card-category">PYTHON // REST API</span>
+              <span class="card-status-dot" title="Repositório Ativo"></span>
+            </div>
+            <h3 class="card-title">API-CARRO — POST / GET / PUT</h3>
+            <p class="card-description">
+              Implementação de API RESTful em Python estruturada para manipulação e persistência de dados veiculares, gerenciando requisições com métodos HTTP, validação de payloads e respostas em JSON.
+            </p>
+            <div class="card-techs">
+              <span class="card-pill">Python</span>
+              <span class="card-pill">REST API</span>
+              <span class="card-pill">JSON</span>
+              <span class="card-pill">CRUD</span>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/Thalita04/API-CARRO---POST-GET-PUT" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>VER NO GITHUB</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projeto 2: Atividade API Jogos (Python) -->
+          <article class="project-card" data-category="python">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-header">
+              <span class="card-category">PYTHON // REST API</span>
+              <span class="card-status-dot" title="Repositório Ativo"></span>
+            </div>
+            <h3 class="card-title">Atividade-API — JOGOS</h3>
+            <p class="card-description">
+              Serviço backend para catálogo de jogos eletrônicos, cobrindo rotas completas de cadastro, consulta filtrada, edição e exclusão de itens com códigos de status HTTP semânticos.
+            </p>
+            <div class="card-techs">
+              <span class="card-pill">Python</span>
+              <span class="card-pill">Endpoints</span>
+              <span class="card-pill">CRUD</span>
+              <span class="card-pill">Estrutura de Dados</span>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/Thalita04/Atividade-API---JOGOS---POST-GET-PUT-thali" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>VER NO GITHUB</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projeto 3: Cadastro Front-Back (JavaScript) -->
+          <article class="project-card" data-category="javascript">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-header">
+              <span class="card-category">JAVASCRIPT // FULLSTACK</span>
+              <span class="card-status-dot" title="Repositório Ativo"></span>
+            </div>
+            <h3 class="card-title">Cadastro Front-Back</h3>
+            <p class="card-description">
+              Aplicação web com comunicação assíncrona entre interface visual e servidor backend, formulários dinâmicos, sanitização de campos e renderização em tempo real de registros cadastrados.
+            </p>
+            <div class="card-techs">
+              <span class="card-pill">JavaScript</span>
+              <span class="card-pill">HTML5</span>
+              <span class="card-pill">CSS3</span>
+              <span class="card-pill">Fetch API</span>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/Thalita04/Cadastro-Front-Back-tha" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>VER NO GITHUB</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projeto 4: App de Clima (JavaScript) -->
+          <article class="project-card" data-category="javascript">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-header">
+              <span class="card-category">JAVASCRIPT // WEB API</span>
+              <span class="card-status-dot" title="Repositório Ativo"></span>
+            </div>
+            <h3 class="card-title">Clima App — Consulta Meteorológica</h3>
+            <p class="card-description">
+              Interface interativa para consulta de condições meteorológicas globais, consumindo dados externos via API REST com tratamento de erros de conexão e visual moderno adaptado.
+            </p>
+            <div class="card-techs">
+              <span class="card-pill">JavaScript</span>
+              <span class="card-pill">Consumo de APIs</span>
+              <span class="card-pill">Assíncrono</span>
+              <span class="card-pill">UI Design</span>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/Thalita04/clima-tha" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>VER NO GITHUB</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projeto 5: Câmeras Fotográficas (Java) -->
+          <article class="project-card" data-category="java">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-header">
+              <span class="card-category">JAVA // POO &amp; ACADÊMICO</span>
+              <span class="card-status-dot" title="Repositório Ativo"></span>
+            </div>
+            <h3 class="card-title">Câmeras Fotográficas Redivo</h3>
+            <p class="card-description">
+              Sistema orientado a objetos em Java para modelagem e catálogo de equipamentos fotográficos, encapsulamento de atributos, construtores e métodos para controle de estoque e especificações.
+            </p>
+            <div class="card-techs">
+              <span class="card-pill">Java</span>
+              <span class="card-pill">POO</span>
+              <span class="card-pill">Encapsulamento</span>
+              <span class="card-pill">Classes</span>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/Thalita04/CAMERAS-FOTOGRAFICAS-REDIVO" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>VER NO GITHUB</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projeto 6: AG-APP-3 (Java) -->
+          <article class="project-card" data-category="java">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-header">
+              <span class="card-category">JAVA // SOFTWARE DEV</span>
+              <span class="card-status-dot" title="Repositório Ativo"></span>
+            </div>
+            <h3 class="card-title">AG-APP-3 — Sistema de Gestão</h3>
+            <p class="card-description">
+              Aplicação de apoio escolar desenvolvida na disciplina de Desenvolvimento de Software, aplicando conceitos de arquitetura em camadas, modularização e boas práticas em Java.
+            </p>
+            <div class="card-techs">
+              <span class="card-pill">Java</span>
+              <span class="card-pill">Software Dev</span>
+              <span class="card-pill">Modularização</span>
+              <span class="card-pill">Lógica</span>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/Thalita04/AG-APP-3" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>VER NO GITHUB</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projeto 7: Funcionário (Python) -->
+          <article class="project-card" data-category="python">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-header">
+              <span class="card-category">PYTHON // GESTÃO DE DADOS</span>
+              <span class="card-status-dot" title="Repositório Ativo"></span>
+            </div>
+            <h3 class="card-title">Gestão de Funcionários</h3>
+            <p class="card-description">
+              Módulo de gerenciamento e manipulação de registros de colaboradores em Python, explorando validação de regras de negócio, cálculos automáticos de jornada e organização em coleções.
+            </p>
+            <div class="card-techs">
+              <span class="card-pill">Python</span>
+              <span class="card-pill">Lógica</span>
+              <span class="card-pill">CRUD</span>
+              <span class="card-pill">Regras de Negócio</span>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/Thalita04/funcionario" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>VER NO GITHUB</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Projeto 8: Mini Sistema com Matéria Regular (JavaScript) -->
+          <article class="project-card" data-category="javascript">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="card-header">
+              <span class="card-category">JAVASCRIPT // SISTEMA WEB</span>
+              <span class="card-status-dot" title="Repositório Ativo"></span>
+            </div>
+            <h3 class="card-title">Mini Sistema com Matéria Regular</h3>
+            <p class="card-description">
+              Projeto interdisciplinar integrando conceitos de Inteligência Artificial e disciplinas da formação regular, desenvolvendo interface interativa focada em usabilidade e aprendizado prático.
+            </p>
+            <div class="card-techs">
+              <span class="card-pill">JavaScript</span>
+              <span class="card-pill">Interdisciplinar</span>
+              <span class="card-pill">DOM</span>
+              <span class="card-pill">Frontend</span>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/Thalita04/-IA---Mini-Sistema-com-Mat-ria-Regular" target="_blank" rel="noopener noreferrer" class="card-link" data-magnetic>
+                <span>VER NO GITHUB</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Rodapé da Seção com Banner GitHub -->
+        <div class="projects-cta-box">
+          <div class="projects-cta-text">
+            <h3>Quer ver mais códigos e experimentos?</h3>
+            <p>Tenho mais de 60 repositórios públicos no GitHub com tarefas escolares, exercícios práticos e protótipos de interfaces.</p>
+          </div>
+          <a href="https://github.com/Thalita04" target="_blank" rel="noopener noreferrer" class="btn-primary" data-magnetic>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            <span>VER TODOS NO GITHUB (@Thalita04)</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contato" class="stage-placeholder" aria-label="Seção de Contato">
+      <div class="placeholder-card">
+        <span class="placeholder-badge">ETAPA 5 — PENDENTE</span>
+        <h2>04 // CONTATO</h2>
+        <p>Esta seção será implementada na Etapa 5 após sua autorização, com canais diretos, composição tipográfica final e validação de mensagens.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Biblioteca Three.js via CDN oficial e confiável (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Lógica Principal do Portfólio -->
+  <script src="script.js"></script>
+</body>
+</html>
